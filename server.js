@@ -1,10 +1,9 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function(req, res) {
-  res.send('Canvas');
-});
+app.use(express.static(__dirname + '/public'));
 
-app.listen(8000, function() {
-  console.log('Listening on port 8000');
+const port = process.env.PORT || 8000;
+app.listen(port, function() {
+  console.log(`Listening on port ${port}`);
 });
