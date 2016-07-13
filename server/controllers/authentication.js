@@ -1,7 +1,10 @@
 const jwt = require('jwt-simple');
 
 const User = require('../models/user');
-const config = require('../config');
+
+if (!process.env.SECRET) {
+  const config = require('../config');
+}
 
 const secret = process.env.SECRET || config.secret;
 
