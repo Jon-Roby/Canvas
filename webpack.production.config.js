@@ -16,7 +16,7 @@ var config = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel',
+        loader: 'babel-loader',
         exclude: [nodeModulesPath]
       },
       {
