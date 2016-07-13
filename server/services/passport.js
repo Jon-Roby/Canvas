@@ -22,9 +22,10 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
   });
 });
 
+const secret = process.env.SECRET || config.secret;
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  secretOrKey: config.secret
+  secretOrKey: secret
 };
 
 const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {

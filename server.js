@@ -12,7 +12,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 3000;
 const publicPath = path.resolve(__dirname, 'public');
 
-mongoose.connect('mongodb://127.0.0.1:27017/auth');
+const mongo = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/auth'
+mongoose.connect(mongo);
 
 app.use(express.static(publicPath));
 app.use(bodyParser.json());
