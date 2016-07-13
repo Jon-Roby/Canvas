@@ -1,15 +1,23 @@
-var express = require('express');
-var path = require('path');
-var httpProxy = require('http-proxy');
+const express = require('express');
+const path = require('path');
+const httpProxy = require('http-proxy');
+const proxy = httpProxy.createProxyServer();
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const app = express();
 
-var proxy = httpProxy.createProxyServer();
-var app = express();
+const router = require('./server/router.js');
 
-var isProduction = process.env.NODE_ENV === 'production';
-var port = isProduction ? process.env.PORT : 3000;
-var publicPath = path.resolve(__dirname, 'public');
+const isProduction = process.env.NODE_ENV === 'production';
+const port = isProduction ? process.env.PORT : 3000;
+const publicPath = path.resolve(__dirname, 'public');
+
+mongoose.connect('mongodb://127.0.0.1:27017/auth');
 
 app.use(express.static(publicPath));
+app.use(bodyParser.json());
+
+router(app);
 
 if (!isProduction) {
   var bundle = require('./server/bundle.js');
