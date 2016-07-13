@@ -7,7 +7,7 @@ var indexPath = path.resolve(__dirname, 'public/src/index.js');
 
 var config = {
   devtool: 'source-map',
-  entry: mainPath,
+  entry: indexPath,
   output: {
     path: buildPath,
     filename: 'bundle.js'
