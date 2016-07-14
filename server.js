@@ -14,7 +14,9 @@ var port = isProduction ? process.env.PORT : 3000;
 var publicPath = path.resolve(__dirname, 'public');
 var router = require('./server/router');
 
-mongoose.connect('mongodb://localhost:auth/auth');
+var mongo = process.env.MONGODB_URI || 'mongodb://localhost:auth/auth'
+
+mongoose.connect(mongo);
 
 app.use(express.static(publicPath));
 app.use(cors());
