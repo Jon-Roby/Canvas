@@ -1,39 +1,50 @@
-const express = require('express');
-const path = require('path');
-const httpProxy = require('http-proxy');
-const proxy = httpProxy.createProxyServer();
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const app = express();
+var express = require('express');
+var path = require('path');
+var httpProxy = require('http-proxy');
+var fallback = require('express-history-api-fallback');
+var cors = require('cors');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-const router = require('./server/router.js');
+var proxy = httpProxy.createProxyServer();
+var app = express();
 
-const isProduction = process.env.NODE_ENV === 'production';
-const port = isProduction ? process.env.PORT : 3000;
-const publicPath = path.resolve(__dirname, 'public');
+var isProduction = process.env.NODE_ENV === 'production';
+var port = isProduction ? process.env.PORT : 3000;
+var publicPath = path.resolve(__dirname, 'public');
+var router = require('./server/router');
 
-const mongo = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/auth'
-mongoose.connect(mongo);
+mongoose.connect('mongodb://localhost:auth/auth');
 
 app.use(express.static(publicPath));
+app.use(cors());
 app.use(bodyParser.json());
-
 router(app);
 
-if (!isProduction) {
-  var bundle = require('./server/bundle.js');
-  bundle();
+// app.post('/api/users/signin', function(req, res) {
+//   res.send({ message: 'yo' });
+// });
 
-  app.all('/build/*', (req, res) => {
-    proxy.web(req, res, {
-      target: 'http://localhost:8080'
-    });
-  });
-}
+// if (!isProduction) {
+//   var bundle = require('./server/bundle.js');
+//   bundle();
+//
+//   // app.all('/build/*', (req, res) => {
+//   //   proxy.web(req, res, {
+//   //     target: 'http://localhost:8080'
+//   //   });
+//   // });
+// }
 
-proxy.on('error', (e) => {
-  console.log('Could not connect to proxy, please try again');
-});
+var bundle = require('./server/bundle.js');
+bundle();
+
+// Fallback so it doesn't hit express
+app.use(fallback('index.html', { root: publicPath }));
+
+// proxy.on('error', (e) => {
+//   console.log('Could not connect to proxy, please try again');
+// });
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

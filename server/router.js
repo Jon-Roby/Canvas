@@ -11,7 +11,11 @@ module.exports = function(app) {
     res.send({ message: 'Test message' });
   });
 
-  app.post('/signin', requireSignin, Authentication.signin);
+  app.get('/hello', function(req, res) {
+    res.send({ message: 'Made it here' });
+  });
 
-  app.post('/signup', Authentication.signup);
+  app.post('/api/users/signin', requireSignin, Authentication.signin);
+
+  app.post('/api/users/signup', Authentication.signup);
 }
