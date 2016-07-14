@@ -14,14 +14,20 @@ var port = isProduction ? process.env.PORT : 3000;
 var publicPath = path.resolve(__dirname, 'public');
 var router = require('./server/router');
 
+if (isProduction) {
+  var bundle = require('./server/bundle.js');
+  bundle();
+  app.use(express.static(publicPath));
+}
+
 var mongo = process.env.MONGODB_URI || 'mongodb://localhost:auth/auth'
 
 mongoose.connect(mongo);
 
-app.use(express.static(publicPath));
 app.use(cors());
 app.use(bodyParser.json());
 router(app);
+
 
 // app.post('/api/users/signin', function(req, res) {
 //   res.send({ message: 'yo' });
@@ -38,8 +44,7 @@ router(app);
 //   // });
 // }
 
-var bundle = require('./server/bundle.js');
-bundle();
+
 
 // Fallback so it doesn't hit express
 app.use(fallback('index.html', { root: publicPath }));
