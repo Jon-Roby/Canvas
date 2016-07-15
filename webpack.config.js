@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 var buildPath = path.resolve(__dirname, 'public', 'build');
 var indexPath = path.resolve(__dirname, 'public/src/index.js');
 
@@ -26,7 +27,14 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './public'
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development')
+      }
+    })
+  ]
 };
 
 // var Webpack = require('webpack');
