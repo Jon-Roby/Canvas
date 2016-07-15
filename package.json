@@ -24,6 +24,7 @@
     "express-history-api-fallback": "^2.0.0",
     "http-proxy": "^1.14.0",
     "jwt-simple": "^0.5.0",
+    "lodash": "^4.13.1",
     "mongoose": "^4.5.4",
     "node-libs-browser": "^0.5.3",
     "passport": "^0.3.2",
@@ -34,7 +35,7 @@
     "react-redux": "^4.0.0",
     "react-router": "^2.0.1",
     "redux": "^3.0.4",
-    "redux-form": "^5.0.1",
+    "redux-form": "^5.3.1",
     "redux-thunk": "^2.1.0",
     "webpack": "^1.10.1",
     "webpack-dev-server": "^1.14.1"

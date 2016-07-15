@@ -15,18 +15,22 @@ function tokenForUser(user) {
 }
 
 exports.signin = function(req, res, next) {
-  res.send({ token: tokenForUser(req.user) });
+  const username = req.user.username;
+  res.send({
+    username: username,
+    token: tokenForUser(req.user)
+  });
 }
 
 exports.signup = function(req, res, next) {
-  const email = req.body.email;
+  const username = req.body.username;
   const password = req.body.password;
 
-  if (!email || !password) {
-    return res.status(422).send({ error: 'You must provide email and password' });
+  if (!username || !password) {
+    return res.status(422).send({ error: 'You must provide username and password' });
   }
 
-  User.findOne({ email: email }, function(err, existingUser) {
+  User.findOne({ username: username }, function(err, existingUser) {
     if (err) { return next(err); }
 
     if (existingUser) {
@@ -34,14 +38,17 @@ exports.signup = function(req, res, next) {
     }
 
     const user = new User({
-      email: email,
+      username: username,
       password: password
     });
 
     user.save(function(err) {
       if (err) { return next(err); }
 
-      res.json({ token: tokenForUser(user) });
+      res.json({
+        token: tokenForUser(user),
+        username: username
+      });
     });
   });
 }

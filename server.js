@@ -12,46 +12,27 @@ var app = express();
 var isProduction = process.env.NODE_ENV === 'production';
 var port = isProduction ? process.env.PORT : 3000;
 var publicPath = path.resolve(__dirname, 'public');
-var router = require('./server/router');
+
+var authRouter = require('./server/routers/auth_router');
+var movieRouter = require('./server/routers/movie_router');
 
 if (isProduction) {
+  console.log('no prodution);')
   var bundle = require('./server/bundle.js');
   bundle();
   app.use(express.static(publicPath));
 }
 
-var mongo = process.env.MONGODB_URI || 'mongodb://localhost:auth/auth'
-
+var mongo = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/auth'
 mongoose.connect(mongo);
 
 app.use(cors());
 app.use(bodyParser.json());
-router(app);
 
+app.use('/api/users', authRouter);
+app.use('/api/movies', movieRouter);
 
-// app.post('/api/users/signin', function(req, res) {
-//   res.send({ message: 'yo' });
-// });
-
-// if (!isProduction) {
-//   var bundle = require('./server/bundle.js');
-//   bundle();
-//
-//   // app.all('/build/*', (req, res) => {
-//   //   proxy.web(req, res, {
-//   //     target: 'http://localhost:8080'
-//   //   });
-//   // });
-// }
-
-
-
-// Fallback so it doesn't hit express
 app.use(fallback('index.html', { root: publicPath }));
-
-// proxy.on('error', (e) => {
-//   console.log('Could not connect to proxy, please try again');
-// });
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

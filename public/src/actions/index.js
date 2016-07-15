@@ -4,23 +4,27 @@ import {
   AUTH_USER,
   UNAUTH_USER,
   AUTH_ERROR,
-  FETCH_MESSAGE
+  FETCH_MESSAGE,
+  CREATE_MOVIE,
+  FETCH_MOVIE
 } from './types';
 
-/*
-  ******************************************************************************
-  CHOOSE CORRECT ROOT URL
-  ******************************************************************************
-*/
-const ROOT_URL = 'http://localhost:3000/api/users';
+var root_url;
+if (!process.env.NODE_ENV) {
+  root_url = 'http://localhost:3000/api';
+} else {
+  root_url = 'https://mighty-cove-77261.herokuapp.com/api'
+}
 
-export function signinUser({ email, password }) {
+export function signinUser({ username, password }) {
   return function(dispatch) {
 
-    axios.post(`${ROOT_URL}/signin`, { email, password })
+    axios.post(`${root_url}/users/signin`, { username, password })
       .then(response => {
         dispatch({ type: AUTH_USER });
+        console.log(response.data);
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('username', response.data.username);
         browserHistory.push('/feature');
       })
       .catch(() => {
@@ -29,13 +33,13 @@ export function signinUser({ email, password }) {
   }
 }
 
-export function signupUser({ email, password }) {
+export function signupUser({ username, password }) {
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/signup`, { email, password })
+    axios.post(`${root_url}/users/signup`, { username, password })
       .then(response => {
         dispatch({ type: AUTH_USER });
-        console.log('response ', response);
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('username', response.data.username);
         browserHistory.push('/feature');
       })
       .catch(response => {
@@ -57,15 +61,35 @@ export function signoutUser() {
   return { type: UNAUTH_USER }
 }
 
-export function fetchMessage() {
+export function fetchMovie(id) {
   return function(dispatch) {
-    axios.get(ROOT_URL, {
+    axios.get(`${root_url}/movies/${id}`, {
       headers: { authorization: localStorage.getItem('token') }
     }).then(response => {
       dispatch({
-        type: FETCH_MESSAGE,
-        payload: response.data.message
-      })
+        type: FETCH_MOVIE,
+        payload: response.data
+      });
+    });
+  }
+}
+
+export function createMovie({ title, description, link }) {
+  const username = localStorage.getItem('username');
+  return function(dispatch) {
+    return axios({
+      method: 'POST',
+      url: `${root_url}/movies`,
+      headers: { authorization: localStorage.getItem('token') },
+      data: { title, description, link, username }
+    }).then(response => {
+      const id = response.data.movie._id;
+      dispatch({
+        type: CREATE_MOVIE,
+        payload: response.data
+      });
+      browserHistory.push(`/movies/${id}`);
+
     });
   }
 }

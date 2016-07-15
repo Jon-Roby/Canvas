@@ -11,6 +11,8 @@ import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
 import Signout from './components/auth/signout';
 import Feature from './components/feature';
+import CreateMovie from './components/create_movie';
+import ViewMovie from './components/view_movie';
 import RequireAuth from './components/auth/require_auth';
 import reducers from './reducers';
 import { AUTH_USER } from './actions/types';
@@ -33,6 +35,8 @@ ReactDOM.render(
         <Route path="signup" component={Signup} />
         <Route path="signout" component={Signout} />
         <Route path="feature" component={RequireAuth(Feature)} />
+        <Route path="createMovie" component={CreateMovie} />
+        <Route path="movies/:id" component={ViewMovie} />
       </Route>
     </Router>
   </Provider>
