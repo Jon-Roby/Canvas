@@ -3,7 +3,7 @@ var fs = require('fs');
 var Webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 
-var webpackConfig = require('./../webpack.config.js');
+var webpackConfig = require('./../webpack.production.config.js');
 var mainPath = path.resolve(__dirname, '..', 'app', 'main.js');
 
 module.exports = () => {

@@ -17,7 +17,6 @@ var authRouter = require('./server/routers/auth_router');
 var movieRouter = require('./server/routers/movie_router');
 
 if (isProduction) {
-  console.log('no prodution);')
   var bundle = require('./server/bundle.js');
   bundle();
   app.use(express.static(publicPath));

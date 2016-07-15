@@ -10,6 +10,8 @@ import {
 } from './types';
 
 var root_url;
+console.log("process.env", process.env);
+console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {
   root_url = 'http://localhost:3000/api';
 } else {
