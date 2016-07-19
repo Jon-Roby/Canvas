@@ -28,9 +28,12 @@ exports.create = (req, res, next) => {
     newMovie.save((err, movie) => {
       if (err) { return next(err); }
 
+      console.log("username ", username);
+
       User.findOne({ username: username }, (err, user) => {
         if (err) { return next(err); }
 
+        console.log("user ", user);
         user.movies.push(movie.title);
 
         user.save(err => {
@@ -52,8 +55,14 @@ exports.getOne = (req, res, next) => {
   Movie.findById(id, (err, movie) => {
     if (err) { return next(err); }
 
-    console.log("movie ", movie);
-
     res.json(movie);
+  });
+};
+
+exports.get = (req, res, next) => {
+  Movie.find({}, (err, movies) => {
+    if (err) { return next(err); }
+
+    res.json(movies);
   });
 };

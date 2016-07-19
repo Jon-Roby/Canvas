@@ -6,12 +6,13 @@ import {
   AUTH_ERROR,
   FETCH_MESSAGE,
   CREATE_MOVIE,
-  FETCH_MOVIE
+  FETCH_MOVIE,
+  FETCH_MOVIES,
+  FETCH_USER
 } from './types';
 
 var root_url;
-console.log("process.env", process.env);
-console.log("process.env.NODE_ENV", process.env.NODE_ENV);
+
 if (process.env.NODE_ENV === 'development') {
   root_url = 'http://localhost:3000/api';
 } else {
@@ -21,13 +22,13 @@ if (process.env.NODE_ENV === 'development') {
 export function signinUser({ username, password }) {
   return function(dispatch) {
 
-    axios.post(`${root_url}/users/signin`, { username, password })
+    axios.post(`${root_url}/auth/signin`, { username, password })
       .then(response => {
         dispatch({ type: AUTH_USER });
-        console.log(response.data);
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('username', response.data.username);
-        browserHistory.push('/feature');
+        localStorage.setItem('userId', response.data.userId);
+        browserHistory.push('/movies');
       })
       .catch(() => {
         dispatch(authError('Bad Sign in Info'));
@@ -37,12 +38,13 @@ export function signinUser({ username, password }) {
 
 export function signupUser({ username, password }) {
   return function(dispatch) {
-    axios.post(`${root_url}/users/signup`, { username, password })
+    axios.post(`${root_url}/auth/signup`, { username, password })
       .then(response => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('username', response.data.username);
-        browserHistory.push('/feature');
+        localStorage.setItem('userId', response.data.userId);
+        browserHistory.push('/movies');
       })
       .catch(response => {
         dispatch(authError(response.data.error));
@@ -76,6 +78,33 @@ export function fetchMovie(id) {
   }
 }
 
+export function fetchUser(id) {
+  return function(dispatch) {
+    axios.get(`${root_url}/users/${id}`, {
+      headers: { authorization: localStorage.getItem('token') }
+    }).then(response => {
+      console.log("response ", response);
+      dispatch({
+        type: FETCH_USER,
+        payload: response.data
+      });
+    });
+  }
+}
+
+export function fetchMovies() {
+  return function(dispatch) {
+    axios.get(`${root_url}/movies`, {
+      headers: { authorization: localStorage.getItem('token') }
+    }).then(response => {
+      dispatch({
+        type: FETCH_MOVIES,
+        payload: response.data
+      });
+    });
+  }
+}
+
 export function createMovie({ title, description, link }) {
   const username = localStorage.getItem('username');
   return function(dispatch) {
@@ -91,7 +120,6 @@ export function createMovie({ title, description, link }) {
         payload: response.data
       });
       browserHistory.push(`/movies/${id}`);
-
     });
   }
 }

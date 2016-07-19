@@ -4,3 +4,5 @@ export const AUTH_ERROR = 'auth_error';
 export const FETCH_MESSAGE = 'fetch_message';
 export const CREATE_MOVIE = 'create_movie';
 export const FETCH_MOVIE = 'fetch_movie';
+export const FETCH_MOVIES = 'fetch_movies';
+export const FETCH_USER = 'fetch_user';

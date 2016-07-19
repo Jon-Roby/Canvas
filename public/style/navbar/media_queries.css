@@ -1,0 +1,25 @@
+/*
+  Media Queries
+*/
+
+@media (max-width: 600px) {
+  .navbar-top {
+    padding-left: 10px;
+    padding-right: 5px;
+  }
+
+  .navbar-bottom {
+    padding-left: 0px;
+    padding-right: 0px;
+    transition: all .3s;
+  }
+
+  .navbar-top-options {
+    max-width: 150px;
+    transition: all .3s;
+  }
+}
+
+.asdf {
+  height: 100px;
+}

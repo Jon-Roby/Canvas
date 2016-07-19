@@ -1,0 +1,28 @@
+
+
+.profile-card {
+  font-family: 'Montserrat-UltraLight';
+  color: #363636;
+  font-size: 1.1em;
+  letter-spacing: .5px;
+  max-width: 600px;
+  margin: 0 auto;
+  /*border: 1px solid #ddd;
+  background-color: white;*/
+}
+
+.profile-card-top-row {
+  max-width: 350px;
+  display: flex;
+  flex-direction: row;
+  /*padding:20px;*/
+  justify-content: space-between;
+}
+
+.profile-card-bottom-row {
+  max-width: 350px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 20px;
+  justify-content: space-between;
+}

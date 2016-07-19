@@ -1,0 +1,107 @@
+.navbar {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar-top-navbar-container, .navbar-bottom-navbar-container {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  transition: all .3s;
+}
+
+.navbar-top {
+  max-width: 900px;
+  height: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-top-options {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lnr-alarm {
+  color: #363636;
+  font-size: 25px;
+}
+
+.lnr-heart {
+  color: #363636;
+  font-size: 25px;
+}
+
+.lnr-user {
+  color: #363636;
+  font-size: 24px;
+}
+
+.lnr-camera-video {
+  color: #363636;
+  font-size: 25px;
+}
+
+.lnr-camera-video {
+  color: #363636;
+}
+
+.lnr:hover {
+  color: #BDC3C7;
+  transition: all .3s;
+}
+
+#navbar-white span {
+  color: white;
+}
+
+#navbar-black span {
+  color: black;
+}
+
+/*
+  navbar-top color that corresponds to selected navbar-bottom tab
+*/
+
+#navbar-top-navbar-color-drama {
+  background-color: #3498db;
+  border-bottom: 1px solid #3498db;
+  transition: all .3s;
+}
+
+#navbar-top-navbar-color-comedy {
+  background-color: #f2992e;
+  border-bottom: 1px solid #f2992e;
+  transition: all .3s;
+}
+
+#navbar-top-navbar-color-thriller {
+  background-color: #36465d;
+  border-bottom: 1px solid #36465d;
+  transition: all .3s;
+}
+
+#navbar-top-navbar-color-horror {
+  background-color: #EF4836;
+  border-bottom: 1px solid #EF4836;
+  transition: all .3s;
+}
+
+#navbar-top-navbar-color-musical {
+  background-color: #a77dc2;
+  border-bottom: 1px solid #a77dc2;
+  transition: all .3s;
+}
+
+#navbar-top-navbar-color-bender {
+  background-color: #2ecc71;
+  border-bottom: 1px solid #2ecc71;
+  transition: all .3s;
+}

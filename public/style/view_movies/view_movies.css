@@ -1,0 +1,150 @@
+.movies-detail {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.view-movies-title {
+  color: #333;
+  font-family: 'Didot';
+  font-variant: small-caps;
+  letter-spacing: 1.5px;
+  color: #363636;
+  font-size: 2.4em;
+  text-align: center;
+  font-style: italic;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+ padding: 0px;
+}
+
+/*.list-group {
+  background-color: white;
+  border: 1px solid #ddd;
+}*/
+
+.list-group-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 70px;
+}
+
+.image-container {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  transition: all .3s;
+}
+
+.view-movies-image {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.image-container .view-movies-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    transition: all .3s;
+}
+
+.image-container:hover .view-movies-image-overlay {
+    display: block;
+    background: rgba(0, 0, 0, .6);
+    transition: all .3s;
+}
+
+
+.view-movies-image-overlay > #play {
+  visibility: hidden;
+  font-size: 40px;
+}
+
+.view-movies-image-overlay:hover > #play {
+  visibility: visible;
+  font-size: 60px;
+  transition: all .3s;
+}
+
+/* The growing play button will work.
+Just remember that it's because of what you're hovering on.
+Secondary, you will need to make sure it doesn't look like it's
+comming from right corner. That's ugly
+Add in other thumbnails as well. */
+
+#play {
+  font-size: 60px;
+  color: white;
+  left: 45%;
+  top: 40%;
+  display: inline-block;
+  position: relative;
+  transition: all .3s;
+}
+
+.view-movies-detail-accordion {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.lnr-chevron-down-circle {
+  font-size: 25px;
+  color: #BDC3C7;
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.lnr-chevron-down-circle:hover {
+  color: black;
+  cursor: pointer;
+  cursor: hand;
+}
+
+#lnr-chevron-down-active {
+  -webkit-transform: rotate(-180deg);
+}
+
+#lnr-chevron-down-inactive {
+
+}
+
+
+
+/*
+  Accordion
+*/
+.view-movies-detail-accordion-inactive div {
+  min-height: 0;
+  max-height: 0;
+  opacity: 0;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+/* max-height is an arbitrary number */
+.view-movies-detail-accordion-active div {
+  max-height: 100px;
+  opacity: 1;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}

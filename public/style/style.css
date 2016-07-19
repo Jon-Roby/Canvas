@@ -1,3 +1,212 @@
-#iframe {
-  border-radius: 5px;
+@font-face {
+  font-family: Montserrat-UltraLight;
+  src: url("./fonts/Montserrat-UltraLight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Montserrat-Light;
+  src: url("./fonts/Montserrat-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Didot;
+  src: url("./fonts/TheanoDidot-Regular.otf") format("opentype");
+}
+
+body {
+  background-color: #fafafa;
+  font-family: 'Montserrat-Light', sans-serif;
+  /*border-top: 140px;*/
+  background-color: #fafafa;
+}
+
+
+* {
+  border-radius: 0 !important;
+}
+
+a {
+  text-decoration: none;
+  color: #363636;
+}
+
+li {
+  color: #363636;
+  list-style: none;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+.container {
+  display: flex;
+  vertical: center;
+}
+
+.navbar-separation {
+  padding-top: 130px;
+}
+
+#landing {
+  font-family: 'Montserrat';
+  padding-left: 40px;
+  padding-top: 100px;
+  font-size: 120px;
+  width: 400px;
+}
+
+#landing span {
+  font-size: 70px;
+}
+
+
+
+
+
+#landing {
+  background: linear-gradient(#7b4397, #dc2430);
+  background: linear-gradient(#556270, #FF6B6B);
+  background: linear-gradient(#C9FFBF, #FFAFBD);
+  background: linear-gradient(to left, #2196f3 , #f44336);
+
+  background: linear-gradient(to left, #ff4b1f , #1fddff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  background: linear-gradient(to left, #fd746c , #ff9068);
+  background: linear-gradient(to left, #FF512F , #DD2476);
+  background: linear-gradient(to left, #1D976C , #93F9B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to left, #e53935 , #e35d5b);
+  background: linear-gradient(to left, #EB3349 , #F45C43);
+    background: linear-gradient(to left, #AA076B , #61045F);
+    background: linear-gradient(to left, #f857a6 , #ff5858); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-image: linear-gradient(90deg, rgb(231, 76, 60) 25%, rgb(52, 152, 219) 100%);
+  background-image: -moz-linear-gradient(left, rgb(231, 76, 60) 25%, rgb(52, 152, 219) 100%);
+  background-image: -webkit-linear-gradient(left, rgb(231, 76, 60) 25%, rgb(52, 152, 219) 100%);
+  background-image: -o-linear-gradient(left, rgb(231, 76, 60) 25%, rgb(52, 152, 219) 100%);
+  background-image: -ms-linear-gradient(left, rgb(231, 76, 60) 40%, rgb(52, 152, 219) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#youflix-landing {
+  font-family: 'Courier New';
+  padding-left: 200px;
+  padding-right: 200px;
+  font-size: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+#y {
+  color: #3498db; /* blue */
+  color: #F22613;
+  color: #F2784B;
+}
+
+#o {
+  color: #f2992e;
+  color: #EF4836;
+  color: #C8F7C5;
+  color: #F62459;
+  color: #FDE3A7;
+
+}
+
+#u {
+  color: #36465d;
+  color: #f1c40f;
+  color: #2ecc71;
+  color: #F5D76E;
+
+  color: #D35400;
+}
+#f {
+  color: #EF4836;
+  color: #a77dc2;
+
+  color: #3498DB;
+}
+#l {
+  color: #a77dc2;
+    color: #F64747;
+    color: #34495E;
+    color: #3498DB;
+    color: #34495E;
+}
+#i {
+  color: #2ecc71;
+  color: #C5EFF7;
+  color: #E4F1FE;
+
+}
+#x {
+  color: #f1c40f;
+  color: #2ecc71;
+  color: #19B5FE;
+}
+
+
+#y {
+  color: #e67e22; /* blue */
+}
+
+#o {
+  color: #e74c3c;
+}
+
+#u {
+  color: #8e44ad;
+}
+#f {
+  color: #2ecc71;
+}
+#l {
+  color: #3498db
+
+}
+#i {
+  color: #f1c40f;
+
+}
+#x {
+  color: #1abc9c;
+}
+
+
+#navbar-top-navbar-color-drama {
+  background-color: ;
+  border-bottom: 1px solid #3498db;
+  transition: all .3s;
+}
+
+#navbar-top-navbar-color-comedy {
+  background-color: #f2992e;
+  border-bottom: 1px solid #f2992e;
+  transition: all .3s;
+}
+
+#navbar-top-navbar-color-thriller {
+  background-color: #36465d;
+  border-bottom: 1px solid #36465d;
+  transition: all .3s;
+}
+
+#navbar-top-navbar-color-horror {
+  background-color: #EF4836;
+  border-bottom: 1px solid #EF4836;
+  transition: all .3s;
+}
+
+#navbar-top-navbar-color-musical {
+  background-color: #a77dc2;
+  border-bottom: 1px solid #a77dc2;
+  transition: all .3s;
+}
+
+#navbar-top-navbar-color-bender {
+  background-color: #2ecc71;
+  border-bottom: 1px solid #2ecc71;
+  transition: all .3s;
 }

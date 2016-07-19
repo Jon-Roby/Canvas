@@ -16,9 +16,11 @@ function tokenForUser(user) {
 
 exports.signin = function(req, res, next) {
   const username = req.user.username;
+  console.log('req.user ', req.user);
   res.send({
     username: username,
-    token: tokenForUser(req.user)
+    token: tokenForUser(req.user),
+    userId: req.user._id
   });
 }
 
@@ -47,7 +49,8 @@ exports.signup = function(req, res, next) {
 
       res.json({
         token: tokenForUser(user),
-        username: username
+        username: username,
+        userId: user._id
       });
     });
   });

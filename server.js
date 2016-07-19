@@ -28,8 +28,11 @@ mongoose.connect(mongo);
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/api/users', authRouter);
+app.use('/api/auth', authRouter);
 app.use('/api/movies', movieRouter);
+
+// name conflict !!!!!!!!!!!!!
+app.use('/api/users', userRouter);
 
 app.use(fallback('index.html', { root: publicPath }));
 
