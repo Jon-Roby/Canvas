@@ -15,6 +15,7 @@ var publicPath = path.resolve(__dirname, 'public');
 
 var authRouter = require('./server/routers/auth_router');
 var movieRouter = require('./server/routers/movie_router');
+var userRouter = require('./server/routers/user_router');
 
 if (isProduction) {
   // var bundle = require('./server/bundle.js');

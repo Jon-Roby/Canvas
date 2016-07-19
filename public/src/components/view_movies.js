@@ -30,7 +30,7 @@ class ViewMovies extends Component {
       return (
           <li key={movie._id} className="list-group-item">
               <div>
-                <p className="view-movies-title">{movie.title}</p>
+                <div className="view-movies-title">{movie.title}</div>
               </div>
               <Link to={id}>
                 <div className="image-container">

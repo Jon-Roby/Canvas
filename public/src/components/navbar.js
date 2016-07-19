@@ -27,7 +27,7 @@ class Navbar extends Component {
         </div>,
         <div key={3}>
           <button id={color} className="lnr-camera-video-button">
-            <Link to="/users/createMovie"><span className="lnr lnr-camera-video"></span></Link>
+            <Link to="/movies/create"><span className="lnr lnr-camera-video"></span></Link>
           </button>
         </div>
       ]

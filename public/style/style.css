@@ -55,7 +55,7 @@ button {
   padding-left: 40px;
   padding-top: 100px;
   font-size: 120px;
-  width: 400px;
+  width: 700px;
 }
 
 #landing span {
@@ -86,8 +86,21 @@ button {
   background-image: -webkit-linear-gradient(left, rgb(231, 76, 60) 25%, rgb(52, 152, 219) 100%);
   background-image: -o-linear-gradient(left, rgb(231, 76, 60) 25%, rgb(52, 152, 219) 100%);
   background-image: -ms-linear-gradient(left, rgb(231, 76, 60) 40%, rgb(52, 152, 219) 100%);
+  background: linear-gradient(to left, #00C9FF , #92FE9D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+  background: linear-gradient(to left, #fe8c00 , #f83600); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to left, #FF512F , #DD2476); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+
+#landing-play {
+  padding-top: 100px;
 }
 
 #youflix-landing {
