@@ -29,10 +29,12 @@ class ShowMore extends Component {
     const cssId = this.state.active ? "lnr-chevron-down-active" : "lnr-chevron-down-inactive" ;
     return (
       <div className="view-movies-detail-accordion">
+
         <div className={cssClass}>
           <div>{this.props.description}</div>
         </div>
-        <div onClick={this.toggle}><span id={cssId} className="lnr lnr-chevron-down-circle"></span></div>
+        <div id="white-block"><span onClick={this.toggle} id={cssId} className="lnr lnr-chevron-down-circle"></span></div>
+
 
       </div>
     )

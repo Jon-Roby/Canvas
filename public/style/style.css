@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: Didot;
-  src: url("./fonts/TheanoDidot-Regular.otf") format("opentype");
+  src: url("./fonts/TheanoDidot-Regular.ttf") format("truetype");
 }
 
 body {
@@ -41,10 +41,10 @@ button {
   background-color: transparent;
 }
 
-.container {
+/*.container {
   display: flex;
   vertical: center;
-}
+}*/
 
 .navbar-separation {
   padding-top: 130px;
@@ -188,7 +188,7 @@ button {
 }
 
 
-#navbar-top-navbar-color-drama {
+/*#navbar-top-navbar-color-drama {
   background-color: ;
   border-bottom: 1px solid #3498db;
   transition: all .3s;
@@ -222,4 +222,4 @@ button {
   background-color: #2ecc71;
   border-bottom: 1px solid #2ecc71;
   transition: all .3s;
-}
+}*/

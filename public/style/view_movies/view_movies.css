@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  padding: 0px;
 }
 
 .view-movies-title {
@@ -16,7 +17,6 @@
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
-  /*font-style: italic;*/
 }
 
 ul {
@@ -25,6 +25,7 @@ ul {
 
 li {
  padding: 0px;
+ margin-bottom: 60px;
 }
 
 /*.list-group {
@@ -39,7 +40,7 @@ li {
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 70px;
+
 }
 
 .image-container {
@@ -111,6 +112,7 @@ Add in other thumbnails as well. */
 .lnr-chevron-down-circle {
   font-size: 25px;
   color: #BDC3C7;
+  z-index: 2;
   display: inline-block;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -127,7 +129,6 @@ Add in other thumbnails as well. */
 }
 
 #lnr-chevron-down-inactive {
-
 }
 
 
@@ -138,15 +139,21 @@ Add in other thumbnails as well. */
 .view-movies-detail-accordion-inactive div {
   min-height: 0;
   max-height: 0;
+  visibility: hidden;
   opacity: 0;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  /*-webkit-transition: all 1s ease-in-out;*/
+  -webkit-transition: max-height .3s ease-in-out, opacity .3s ease-in-out;
 }
 
 /* max-height is an arbitrary number */
 .view-movies-detail-accordion-active div {
-  max-height: 100px;
+  max-height: 500px;
+  visibility: visible;
   opacity: 1;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  /*-webkit-transition: all 1s ease-in-out;*/
+  -webkit-transition: max-height .6s ease-in-out, opacity .7s ease-in-out;
+}
+
+#white-block {
+  background-color: white;
 }

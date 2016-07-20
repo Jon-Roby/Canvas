@@ -11,8 +11,7 @@ class Navbar extends Component {
       let color = navIsWhite ? 'navbar-white' : 'navbar-black';
 
       let userId = localStorage.getItem('userId');
-      console.log(localStorage);
-      console.log(userId);
+
       let userProfile = `/users/${userId}`
       return [
         <div key={1}>
