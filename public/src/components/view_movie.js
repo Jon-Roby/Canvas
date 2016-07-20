@@ -4,7 +4,7 @@ import * as actions from '../actions';
 
 class ViewMovie extends Component {
   componentDidMount() {
-    console.log(this.props);
+
     const movieId = this.props.location.pathname.split('/')[2];
     this.props.fetchMovie(movieId);
   }
@@ -27,15 +27,18 @@ class ViewMovie extends Component {
 
       <div className="view-movie">
 
-        <div className="view-movie-theater">
           <div className="view-movie-theater-title"><p>{movie.title}</p></div>
-          <div>
-            <iframe id="iframe" src={movie.link} frameBorder="0" allowFullScreen></iframe>
+
+
+          <div className="view-movie-theater-iframe">
+            <iframe id="iframe" src={movie.link} frameBorder="0" allowFullScreen>
+            </iframe>
           </div>
+
           <div className="view-movie-theater-details">
             {movie.description}
           </div>
-        </div>
+
       </div>
     );
   }
@@ -46,6 +49,8 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, actions)(ViewMovie);
+
+
 
 // <iframe width="640" height="360" src={string} frameborder="0" allowFullScreen></iframe>
 // <iframe width="640" height="360" src="https://player.vimeo.com/video/174544848" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
