@@ -61,3 +61,32 @@
 #genres-bender:hover, .genres-bender-selected {
   background-color: #2ecc71;
 }
+
+/*
+  anchor text - must be done separately or else the anchor tag
+  background turns color at a different rate
+*/
+
+#genres-drama:hover a, .genres-drama-selected a {
+  color: white;
+}
+
+#genres-comedy:hover a, .genres-comedy-selected a {
+  color: white;
+}
+
+#genres-thriller:hover a, .genres-thriller-selected a {
+  color: white;
+}
+
+#genres-horror:hover a, .genres-horror-selected a{
+  color: white;
+}
+
+#genres-musical:hover a, .genres-musical-selected a {
+  color: white;
+}
+
+#genres-bender:hover a, .genres-bender-selected a {
+  color: white;
+}
