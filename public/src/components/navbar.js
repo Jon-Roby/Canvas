@@ -34,12 +34,18 @@ class Navbar extends Component {
     } else {
 
       return [
-        <li className="nav-item" key={1}>
-          <Link className="nav-link" to="/signin">Sign In</Link>
-        </li>,
-        <li className="nav-item" key={2}>
-          <Link className="nav-link" to="/signup">Sign Up</Link>
-        </li>
+        <div key={1}>
+          <button>
+          <Link className="nav-link" to="/users/signin">Sign In</Link>
+          </button>
+        </div>,
+        <div key={2}>
+          <button>
+            <Link className="nav-link" to="/users/signup">Sign Up</Link>
+          </button>
+        </div>
+
+
       ]
     }
 
@@ -108,11 +114,11 @@ class Navbar extends Component {
               </Link>
             </div>
 
-            <div>
-              <div className="navbar-top-options">
-                {this.renderLinks()}
-              </div>
+
+            <div className="navbar-top-options">
+              {this.renderLinks()}
             </div>
+
           </div>
         </nav>
 
