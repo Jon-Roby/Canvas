@@ -30,19 +30,19 @@ class ShowMore extends Component {
     return (
       <div className="view-movies-detail-accordion">
 
+        <div className="view-movies-detail-accordion-top">
+          <div id="view-movies-detail-accordion-top-eye"><span className="lnr lnr-eye"></span></div>
+          <div id="view-movies-detail-accordion-top-chevron"><span onClick={this.toggle} id={cssId} className="lnr lnr-chevron-down-circle"></span></div>
+          <div id="view-movies-detail-accordion-top-heart"><span className="lnr lnr-heart"></span></div>
+        </div>
+
         <div className={cssClass}>
           <div>{this.props.description}</div>
         </div>
-        <div id="white-block"><span onClick={this.toggle} id={cssId} className="lnr lnr-chevron-down-circle"></span></div>
-
 
       </div>
     )
   }
 }
-
-// function mapStateToProps(state) {
-//   return { movie: state.movies.movie };
-// }
 
 export default connect(null, null)(ShowMore);

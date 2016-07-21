@@ -63,7 +63,7 @@ li {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 99%;
     display: none;
     color: #FFF;
     display: flex;
@@ -103,59 +103,4 @@ Add in other thumbnails as well. */
   display: inline-block;
   position: relative;
   transition: all .3s;
-}
-
-.view-movies-detail-accordion {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.lnr-chevron-down-circle {
-  font-size: 25px;
-  color: #BDC3C7;
-  z-index: 2;
-  display: inline-block;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.lnr-chevron-down-circle:hover {
-  color: black;
-  cursor: pointer;
-  cursor: hand;
-}
-
-#lnr-chevron-down-active {
-  -webkit-transform: rotate(-180deg);
-}
-
-#lnr-chevron-down-inactive {
-}
-
-
-
-/*
-  Accordion
-*/
-.view-movies-detail-accordion-inactive div {
-  min-height: 0;
-  max-height: 0;
-  visibility: hidden;
-  opacity: 0;
-  /*-webkit-transition: all 1s ease-in-out;*/
-  -webkit-transition: max-height .3s ease-in-out, opacity .3s ease-in-out;
-}
-
-/* max-height is an arbitrary number */
-.view-movies-detail-accordion-active div {
-  max-height: 500px;
-  visibility: visible;
-  opacity: 1;
-  /*-webkit-transition: all 1s ease-in-out;*/
-  -webkit-transition: max-height .6s ease-in-out, opacity .7s ease-in-out;
-}
-
-#white-block {
-  background-color: white;
 }
