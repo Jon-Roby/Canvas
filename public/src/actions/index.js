@@ -8,7 +8,8 @@ import {
   CREATE_MOVIE,
   FETCH_MOVIE,
   FETCH_MOVIES,
-  FETCH_USER
+  FETCH_USER,
+  LOAD_GENRE
 } from './types';
 
 var root_url;
@@ -92,9 +93,30 @@ export function fetchUser(id) {
   }
 }
 
-export function fetchMovies() {
+export function fetchMovies(genre) {
+  let url;
+  if (!genre) {
+    url = `${root_url}/movies`
+  } else {
+    url = `${root_url}/movies/genres/${genre}`
+  }
+
+
   return function(dispatch) {
-    axios.get(`${root_url}/movies`, {
+    axios.get(url, {
+      headers: { authorization: localStorage.getItem('token') }
+    }).then(response => {
+      dispatch({
+        type: FETCH_MOVIES,
+        payload: response.data
+      });
+    });
+  }
+}
+
+export function fetchMoviesByGenre(genre) {
+  return function(dispatch) {
+    axios.get(`${root_url}/movies/${genre}`, {
       headers: { authorization: localStorage.getItem('token') }
     }).then(response => {
       dispatch({

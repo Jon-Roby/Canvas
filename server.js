@@ -23,17 +23,19 @@ if (isProduction) {
   app.use(express.static(publicPath));
 }
 
+
+
 var mongo = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/auth'
 mongoose.connect(mongo);
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/api/auth', authRouter);
-app.use('/api/movies', movieRouter);
+// app.use(express.static(path.resolve(__dirname, 'landing')));
 
-// name conflict !!!!!!!!!!!!!
+app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
+app.use('/api/movies', movieRouter);
 
 app.use(fallback('index.html', { root: publicPath }));
 

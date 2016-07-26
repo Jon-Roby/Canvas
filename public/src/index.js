@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux'
 import reduxThunk from 'redux-thunk';
 
 import App from './components/app';
@@ -15,15 +16,20 @@ import ViewMovies from './components/view_movies';
 import CreateMovie from './components/create_movie';
 import ViewMovie from './components/view_movie';
 import Profile from './components/profile';
-import Landing from './components/landing';
+import Landing from './components/landing/landing';
 import NotFound from './components/not-found';
 import RequireAuth from './components/auth/require_auth';
 
 import reducers from './reducers';
 import { AUTH_USER } from './actions/types';
+import { fetchMovies } from './actions';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
+
+const history = syncHistoryWithStore(browserHistory, store);
+
+// history.listen(location => console.log("location ", location));
 
 const token = localStorage.getItem('token');
 
@@ -44,9 +50,9 @@ ReactDOM.render(
       </Route>
 
       <Route path="/movies" component={App}>
-        <IndexRoute component={ViewMovies} />
 
-        <Route path="genres" component={ViewMovies}>
+
+        <Route path="genres">
           <Route path="drama" component={ViewMovies} />
           <Route path="comedy" component={ViewMovies} />
           <Route path="thriller" component={ViewMovies} />
@@ -64,6 +70,9 @@ ReactDOM.render(
     </Router>
   </Provider>
   , document.querySelector('.app'));
+
+
+
 
 //   <Route path="feature" component={RequireAuth(Feature)} />
 //

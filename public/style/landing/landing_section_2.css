@@ -1,0 +1,13 @@
+.landing-section-2 span {
+  padding-top: 20px;
+  font-size: 2.5em;
+  color: rgb(71, 178, 127);
+
+}
+
+#landing-section-2-youflix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}

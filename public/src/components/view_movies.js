@@ -13,8 +13,19 @@ class ViewMovies extends Component {
     }
   }
 
-  componentDidMount() {
-    this.props.fetchMovies();
+  componentWillMount() {
+    let genre = this.props.location.pathname.split('/')[3];
+    this.props.fetchMovies(genre);
+  }
+
+  componentDidUpdate(nextProps) {
+    if (this.props.route.path !== nextProps.route.path) {
+      let genre = this.props.location.pathname.split('/')[3];
+      this.props.fetchMovies(genre);
+      return true;
+    }
+
+    return false;
   }
 
   getMoviesLink(movieLink) {
@@ -25,10 +36,11 @@ class ViewMovies extends Component {
 
   renderMovies() {
     let { movies } = this.props;
+
     return movies.map((movie) => {
       let id = `/movies/${movie._id}`
       return (
-          <li key={movie._id} className="list-group-item">
+          <li className="list-group-item">
               <div>
                 <div className="view-movies-title">{movie.title}</div>
               </div>
@@ -48,20 +60,20 @@ class ViewMovies extends Component {
   }
 
   render() {
-    const { movies } = this.props
+    const { movies } = this.props;
 
     if (!movies) {
       return (
-        <div class="sk-cube-grid">
-          <div class="sk-cube sk-cube1"></div>
-          <div class="sk-cube sk-cube2"></div>
-          <div class="sk-cube sk-cube3"></div>
-          <div class="sk-cube sk-cube4"></div>
-          <div class="sk-cube sk-cube5"></div>
-          <div class="sk-cube sk-cube6"></div>
-          <div class="sk-cube sk-cube7"></div>
-          <div class="sk-cube sk-cube8"></div>
-          <div class="sk-cube sk-cube9"></div>
+        <div className="sk-cube-grid">
+          <div className="sk-cube sk-cube1"></div>
+          <div className="sk-cube sk-cube2"></div>
+          <div className="sk-cube sk-cube3"></div>
+          <div className="sk-cube sk-cube4"></div>
+          <div className="sk-cube sk-cube5"></div>
+          <div className="sk-cube sk-cube6"></div>
+          <div className="sk-cube sk-cube7"></div>
+          <div className="sk-cube sk-cube8"></div>
+          <div className="sk-cube sk-cube9"></div>
         </div>
       )
     }

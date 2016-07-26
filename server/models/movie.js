@@ -15,12 +15,12 @@ const movieSchema = new Schema({
   description: { type: String, lowercase: true },
   link: { type: String },
   credits: { type: Array },
+  genre: { type: Array },
 
   username: { type: String },
-  date: { new Date() }
 
-  likes: { type: Array }
-  views: { type: Number, default: 0 }
+  likes: { type: Array },
+  views: { type: Number, default: 0 },
 
   comments: { type: Array }
 

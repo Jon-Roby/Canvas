@@ -1,7 +1,8 @@
 import {
   CREATE_MOVIE,
   FETCH_MOVIE,
-  FETCH_MOVIES
+  FETCH_MOVIES,
+  LOAD_GENRE
 } from '../actions/types';
 
 export default function(state = {}, action) {
@@ -13,6 +14,8 @@ export default function(state = {}, action) {
       return { ...state, movie: action.payload };
     case FETCH_MOVIES:
       return { ...state, movies: action.payload };
+    case LOAD_GENRE:
+      return { ...state, movies: action.payload }
   }
 
   return state;

@@ -1,0 +1,68 @@
+#landing-navbar-container {
+  width: 100%;
+}
+
+.landing-navbar-space {
+  height: 20px;
+}
+
+.landing-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  height: 35px;
+  align-items: center;
+}
+
+.landing-navbar-search-container {
+  display: flex;
+  height: 100%;
+
+}
+
+.lnr-magnifier {
+  font-size: 25px;
+}
+
+.landing-navbar-search {
+  color: hsla(0,0%,100%,.5);
+  width: 400px;
+  margin-left: 45px;
+  background: rgba(0,0,0,.13);
+  height: 100%;
+  border: 0;
+  border-radius: 3px;
+  font-family: 'Montserrat-Light';
+  letter-spacing: .5px;
+}
+
+.landing-navbar-search:focus {
+  background-color: white;
+  color: #363636;
+}
+
+.landing-navbar-options {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding-right: 25px;
+  font-size: .9em;
+}
+
+#landing-navbar-options-sign-in {
+  height: 100%;
+  background-color: rgba(255,255,255,0.4);
+  border-radius: 3px;
+  width: 80px;
+  color: white;
+}
+
+#landing-navbar-options-sign-up {
+  height: 100%;
+  border-radius: 3px;
+  background-color: white;
+  color: black;
+  width: 80px;
+  margin-left: 20px;
+}

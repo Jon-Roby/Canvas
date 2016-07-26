@@ -6,3 +6,4 @@ export const CREATE_MOVIE = 'create_movie';
 export const FETCH_MOVIE = 'fetch_movie';
 export const FETCH_MOVIES = 'fetch_movies';
 export const FETCH_USER = 'fetch_user';
+export const LOAD_GENRE = 'load_genre';

@@ -27,6 +27,7 @@ class CreateMovie extends Component {
 
   renderField(fieldConfig, field) {
     const fieldHelper = this.props.fields[field];
+    console.log('hello');
 
     return (
       <div className={`form-group ${fieldHelper.touched && fieldHelper.invalid ? 'has-danger' : ''}`}>
