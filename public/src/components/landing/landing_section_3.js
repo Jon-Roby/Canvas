@@ -13,7 +13,7 @@ export default class LandingSection2 extends Component {
         <div className="landing-section-content">
           <p>Upload your movies.</p>
           <div className="image-container">
-            <div className="view-movies-image"><img width="600" src="/style/landing/genres.png"></img></div>
+            <div className="view-movies-image"><img width="600" src="/style/landing/landing_section_3.png"></img></div>
           </div>
         </div>
       </div>

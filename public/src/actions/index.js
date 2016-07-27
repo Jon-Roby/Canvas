@@ -95,9 +95,7 @@ export function fetchUser(id) {
 
 export function fetchMovies(genre) {
   let url;
-  console.log(genre);
   if (!genre) {
-    console.log(1);
     url = `${root_url}/movies`
   } else {
     url = `${root_url}/movies/genres/${genre}`
