@@ -98,7 +98,7 @@ class Navbar extends Component {
         <nav id={this.getNavbarColor()} className="navbar-top-navbar-container">
           <div className="navbar-top">
             <div>
-              <Link to="/" id={this.getNavbarLogoColor()} className="navbar-brand">
+              <Link to="/movies" id={this.getNavbarLogoColor()} className="navbar-brand">
                 <div><span className="lnr lnr-film-play"></span></div>
                 <div id="youflix-logo-I">
                   |
