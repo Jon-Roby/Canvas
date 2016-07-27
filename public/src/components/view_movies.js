@@ -15,6 +15,7 @@ class ViewMovies extends Component {
 
   componentWillMount() {
     let genre = this.props.location.pathname.split('/')[3];
+    console.log(genre);
     this.props.fetchMovies(genre);
   }
 

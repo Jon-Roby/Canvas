@@ -10,9 +10,8 @@ export default class LandingSection2 extends Component {
       <div className="landing-section">
         <LandingNavbar />
         <div className="landing-section-content">
-          <div id="landing-section-2-youflix"><span id="landing-lnr-film-play" className="lnr lnr-film-play"></span></div>
 
-          <p>YouFlix is a space to show your cinematic creation.</p>
+          <p>YouFlix is independent cinema. You create. You watch.</p>
         </div>
       </div>
     );

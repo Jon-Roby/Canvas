@@ -50,6 +50,7 @@ ReactDOM.render(
       </Route>
 
       <Route path="/movies" component={App}>
+        <IndexRoute path="/" component={ViewMovies} />
 
 
         <Route path="genres">

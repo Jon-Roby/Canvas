@@ -11,7 +11,7 @@ export default class LandingSection2 extends Component {
         <LandingNavbar />
 
         <div className="landing-section-content">
-          <h6>YouFlix is a space to show your cinematic creation.</h6>
+          <p>And then watch. Simple.</p>
 
           <div className="image-container">
             <div className="view-movies-image"><img width="600" src="/style/landing/electricguest.png"></img></div>

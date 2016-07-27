@@ -14,8 +14,8 @@ export default class LandingSection1 extends Component {
               Y<div id="fa-play-circle-div"><i className="fa fa-play-circle"></i></div>UFLIX
             </div>
           </div>
-          <div className="landing-text"><div>the movies you create</div></div>
-          <div id="landing-text-2" className="landing-text"><div>for everyone to watch</div></div>
+          <div className="landing-text"><div>You create the movies</div></div>
+          <div id="landing-text-2" className="landing-text"><div>Everyone watches</div></div>
           <div id="landing-sign-up"><button><Link to="/users/signup">Sign Up</Link></button></div>
           <div id="landing-sign-in"><button><Link to="/users/signin">Sign In</Link></button></div>
           <div className="landing-text">
