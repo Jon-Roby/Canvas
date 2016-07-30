@@ -17,6 +17,8 @@ movieRouter.post('/', Movies.create);
 
 movieRouter.get('/:id', Movies.getOne);
 
+movieRouter.get('/results/:query', Movies.search);
+
 movieRouter.get('/genres/:genre', Movies.getByGenre);
 
 module.exports = movieRouter;
