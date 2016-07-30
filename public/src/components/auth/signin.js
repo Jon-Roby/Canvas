@@ -35,6 +35,10 @@ class Signin extends Component {
         {this.renderAlert()}
 
         <button className="btn btn-primary" action="submit">Sign in</button>
+
+        <button className="btn btn-primary" action="submit">
+          <a href="https://accounts.google.com/o/oauth2/auth?client_id=119796969943-0pab7jeg1a1nnv23a9c4k1n4f58kuuf9.apps.googleusercontent.com&redirect_uri=http://localhost:8080/oauth2callback&scope=https://www.googleapis.com/auth/youtube&response_type=code&access_type=offline">YouTube Sign In</a>
+        </button>
       </form>
     );
   }

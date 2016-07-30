@@ -21,4 +21,6 @@ authRouter.post('/signin', requireSignin, Authentication.signin);
 
 authRouter.post('/signup', Authentication.signup);
 
+authRouter.post('/youtube_auth', Authentication.youtubeAuth);
+
 module.exports = authRouter;

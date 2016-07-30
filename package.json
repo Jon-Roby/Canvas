@@ -41,6 +41,7 @@
     "redux": "^3.0.4",
     "redux-form": "^5.3.1",
     "redux-thunk": "^2.1.0",
+    "request": "^2.74.0",
     "scroll-to-y": "git://github.com/daviferreira/scroll-to-y.git",
     "scrollreveal": "^3.3.1",
     "webpack": "^1.10.1",

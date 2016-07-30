@@ -17,6 +17,7 @@ import CreateMovie from './components/create_movie';
 import ViewMovie from './components/view_movie';
 import Profile from './components/profile';
 import Landing from './components/landing/landing';
+import OAuth2Callback from './components/oauth2callback';
 import NotFound from './components/not-found';
 import RequireAuth from './components/auth/require_auth';
 
@@ -41,6 +42,8 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Landing} />
+
+      <Route path="/oauth2callback" component={OAuth2Callback} />
 
       <Route path="/users" component={App}>
         <Route path="signin" component={Signin} />

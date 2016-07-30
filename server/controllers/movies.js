@@ -3,7 +3,6 @@ const Movie = require('../models/movie');
 const path = require('path');
 
 exports.create = (req, res, next) => {
-  console.log(1);
   const title = req.body.title;
   const description = req.body.description;
   const link = req.body.link;
@@ -56,7 +55,6 @@ exports.create = (req, res, next) => {
 }
 
 exports.getOne = (req, res, next) => {
-  console.log(2);
   var id = req.params.id;
   if (!id) {
     res.json({ error: 'No id specified' });
@@ -69,7 +67,6 @@ exports.getOne = (req, res, next) => {
 };
 
 exports.get = (req, res, next) => {
-  console.log(3);
   Movie.find({}, (err, movies) => {
     if (err) { return next(err); }
 
@@ -78,7 +75,6 @@ exports.get = (req, res, next) => {
 };
 
 exports.getByGenre = (req, res, next) => {
-  console.log(4);
   var genre = req.params.genre;
   if (!genre) {
     res.json({ error: 'No genre specified' });
